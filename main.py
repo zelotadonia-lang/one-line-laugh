@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
-"""The One-Line Laugh entry.
+"""The One-Line Laugh entry, round 2 revision.
 
 Writes one original funny line (<=200 chars) to /output/entry.txt,
 deterministically: same bytes on every run.
 """
+import hashlib
 import os
 import sys
 
-LINE = (
-    "My toaster has two settings: lightly golden, and a full "
-    "smoke-alarm audition."
-)
+LINE = "I watered the cactus once. It died of attention."
 
 OUTPUT_PATH = "/output/entry.txt"
 
@@ -50,6 +48,12 @@ def main():
     if raw.count(b"\n") != 0:
         print("entry.txt must hold exactly one line", file=sys.stderr)
         raise SystemExit(1)
+    # Fingerprint the bytes that landed, so a later run can prove the
+    # output is byte-identical: same sha256, same length, same line.
+    print(
+        f"entry.txt: {len(raw)} bytes, sha256 "
+        f"{hashlib.sha256(raw).hexdigest()}"
+    )
 
 
 if __name__ == "__main__":
