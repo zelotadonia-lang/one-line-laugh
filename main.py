@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The One-Line Laugh entry, round 2 revision.
+"""The One-Line Laugh entry, round 3 revision (final).
 
 Writes one original funny line (<=200 chars) to /output/entry.txt,
 deterministically: same bytes on every run.
@@ -8,7 +8,7 @@ import hashlib
 import os
 import sys
 
-LINE = "I watered the cactus once. It died of attention."
+LINE = "The hotel shower has two temperatures: ice age and regret."
 
 OUTPUT_PATH = "/output/entry.txt"
 
